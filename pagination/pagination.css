@@ -1,0 +1,31 @@
+*{
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    background-color: blueviolet;
+
+}
+
+.container
+{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    margin-top: 400px;
+}
+.links a{
+    margin-left: 80px;
+    text-decoration: none;
+    color: black;
+    
+}
+ a :hover{
+    background-color: black;
+    color: white;
+}
+form{
+    margin-top: 50px;
+    margin-left: 100px;
+}

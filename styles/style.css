@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-decoration: none ;
+}
+.pg{
+    text-align: center;
+    
+}
+.pg a{
+    color: black;
+     display: inline-block;
+     padding: 20px;
+}
+.pg a.active{
+    background-color:rgb(210, 152, 210);
+    border-radius: 6px;
+    height: 5px;
+    margin-top: 20px;
+}
+.pg a:hover:not(.active){
+    background-color: rgb(171, 170, 170);
+    border-radius: 6px;
+    height: 5px;
+}

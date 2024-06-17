@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagination</title>
+    <link rel="stylesheet" href="pagination.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/v5-font-face.min.css">
+</head>
+<!-- <style>
+    .container{
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(45deg, #410358, #4700bc);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .pagination{
+        display: flex;
+        align-items: center;
+        background: white;
+        color: rgb(223, 130, 83);
+        padding: 10px 40px;
+        border-radius: 6px;
+
+    }
+    ul{
+        margin: 20px 50px;
+        margin-left: 3px;
+    }
+    ul li{
+       display: inline-block; 
+       margin: 0 10px;
+       width: 45px;
+       height: 45px;
+       border-radius: 50%;
+       text-align: center;
+       font-size: 22px;
+       font-weight: 500;
+       line-height: 45px;
+       cursor: pointer;
+    }
+    ul li.active{
+        color: rgb(255, 253, 253);
+        background-image: linear-gradient(#ff4568, #ff4568);
+        background-repeat: no-repeat;
+    }
+       .btn1, .btn2{
+        display: inline flex;
+        align-items: center;
+        font-size: 22px;
+        font-weight: 500;
+        color: #383838;
+        background: transparent;
+        outline: line none;
+        border: none;
+        cursor: pointer;
+
+       }
+       .btn1 img{
+        width: 34px;
+        margin-right: 15px;
+       }
+       .btn2 img{
+        width: 34px;
+        margin-right: 15px;
+       }
+       .sek{
+        width: 34px;
+        margin-left: 3px;
+       }
+</style> -->
+<body>
+    <!-- <div class="container">
+        <div class="pagination">
+            <button class="btn1"><img src="images/arrow left.png" >prev</button>
+            <ul>
+                <li class="link active" value="1" onclick="activelink()">1</li>
+                <li class="link active" value="2" onclick="activelink()">2</li>
+                <li class="link active" value="3" onclick="activelink()">3</li>
+                <li class="link active" value="4" onclick="activelink()">4</li>
+                <li class="link active" value="5" onclick="activelink()">5</li>
+            </ul>
+            <button class="btn2">next</button>  
+            <img class="sek" src="images/arrow right.png">
+            
+        </div>
+        </div>
+        <div class="container1">
+            <h1>Multiple file upload</h1>
+            <input type="file" name="files" id="files" multiple>
+            <input type="button" id="btn_upload" value="upload">
+        </div> -->
+<!-- 
+        <script>
+            let link = document.getElementsByClassName("link");  
+
+            let currentValue = 1;
+
+            function activelink(){
+                for(1 of link){
+                  classList.remove("active");  
+                }
+                event.target.classList.add("active");
+                currentValue = event.target.value
+
+            }    
+        </script> -->
+        <form id="upload-form" enctype="multipart/form-data">
+            <input type="file" id="file-input" name="files[]" multiple accept=".jpg,.jpeg,.png">
+            <button type="button" id="upload-button">Upload Files</button>
+          </form>
+
+        <div class="container">
+           
+            <button class="Button" disabled>
+                <i class="fa-solid.fa-angles-left"></i>
+            
+            </button>
+            <button class="Button" disabled>
+                <i class="fa-solid.fa-angle-left"></i>
+            
+            </button>
+            <div class="links">
+                <a href="" class="link">1</a>
+                <a href="" class="link">2</a>
+                <a href="" class="link">3</a>
+                <a href="" class="link">4</a>
+                <a href="" class="link">5</a>
+                <a href="" class="link">6</a>
+            </div>
+            <button class="Button">
+                <i class="fa-solid.fa-angles-right"></i>
+            
+            </button> 
+            <button class="Button">
+                <i class="fa-solid.fa-angle-right"></i>
+            
+            </button>
+        </div>
+        
+          
+        
+    <script src="pagination.js"></script>
+</body>
+</html>
