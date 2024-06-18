@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Connection Status</title>
+    <link rel="stylesheet" href="network.css">
+    <style>
+        body{
+    margin-top: 200px;  
+    background: #c8f330;
+  }
+  div {
+      justify-content: center;
+      height: 90px;
+      width: 390px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-size: 80px;
+      background-color: #f1b46e;
+      border-radius:0px 0px;
+      margin-left: 450px;
+      border-radius: 30px;
+  }
+  div .status {
+      width: 80px;
+      height: 70px;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      background-image:url("/images/wifi-off.jpg");
+      background-color: none;
+      border-radius: 50%; /* Corrected from border: 50%; */
+      margin-left: 10px; /* Added margin for better spacing */
+  }
+  div .status.online {
+      height: 80px;
+      width: 150px;
+      background-repeat: no-repeat;
+      background-size:50px;
+      background-position: center;
+      background-image: url("/images/wifi.jpg"); 
+      border-radius: 50%;
+  }
+  div .on{
+    /* background-color: #361531; */
+    color: #0c904c;
+    padding: 10px;
+    border-radius: 40px;
+  }
+    </style>
+</head>
+<body>
+    <div>Connecting to Internet:- 
+        <div class="status">
+            <h2 class="head"></h2>
+            <p class="para"></p>
+        </div>
+    </div>
+    <div class="">
+        <h2 class="on"></h2>
+        <p class="on1"></p>
+    </div>
+    <script>
+        const checkOnlineStatus = () => {
+    const statusBar = document.querySelector('.status');
+    const content = document.querySelector('.on');
+    const content1 = document.querySelector('.on1');
+    if (navigator.onLine) {
+        if (!statusBar.classList.contains('online')) {
+            statusBar.classList.add('online');
+            content.innerHTML = "Your are online: ";
+            content1.innerHTML = "Now you can access internet";
+          
+        }
+        
+    } else {    
+        if (statusBar.classList.contains('online')) {
+            statusBar.classList.remove('online');
+            content.innerHTML = "Your are offline: ";
+            content1.innerHTML = "you can't access internet";
+        }
+    }
+    setTimeout(checkOnlineStatus, 2000);
+}
+checkOnlineStatus();
+    </script>
+</body>
+</html>

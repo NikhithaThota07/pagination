@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Status Check</title>
+  <link rel="stylesheet" href="network.css"> </head>
+<body>
+  <div id="network-status">
+    <span class="icon"></span> <span class="message">Checking...</span>
+  </div>
+  <script>
+    const checkOnlineStatus = async () => {
+  try {
+    const response = await fetch("https://https://support.google.com/sites/answer/90569?hl=en/1pixel.png");
+    return response.status >= 200 && response.status < 300; // Success status codes
+  } catch (err) {
+    return false; // Definitely offline
+  }
+};
+
+// Usage
+checkOnlineStatus().then(isOnline => {
+  console.log("Is online:", isOnline);
+  // Update your UI based on the isOnline value
+});
+
+  </script> </body>
+</html>

@@ -1,6 +1,7 @@
 *{
     margin: 0;padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 body{
     height: 100vh;
@@ -15,16 +16,27 @@ body{
     justify-content: space-between;
     margin-top: 400px;
 }
-.links a{
-    margin-left: 80px;
-    text-decoration: none;
-    color: black;
+.links{
+    text-align: center;
+    
     
 }
- a :hover{
-    background-color: black;
-    color: white;
+.links a{
+    color: black;
+     display: inline-block;
+     padding: 20px;
+
+    background-color:rgb(236, 222, 236);
+    border-radius: 6px;
+    height: 5px;
+    margin-top: 20px;
 }
+.links a:hover{
+    background-color: rgb(171, 170, 170);
+    border-radius: 6px;
+    height: 5px;
+}
+
 form{
     margin-top: 50px;
     margin-left: 100px;
