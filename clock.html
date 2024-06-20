@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLOCK</title>
+    <style>
+      .clock{
+        height: 500px;
+        width: 500px;
+        border: 20px solid black;
+        border-radius: 50%;
+        position: relative;
+        margin: 0 auto;
+      }  
+      .point{
+        width: 20px;
+        height: 20px;
+        background-color: gray ;
+        border-radius: 50%;
+        position:absolute;
+        top: 240px;
+        left:240px;
+      }
+      .hour{
+        font-size: 30px;
+        font-weight: bold;
+        position: absolute;
+      }
+      /* .hour1{
+        top: -200px;
+        right: -100px;
+      }
+      .hour2{
+        top: -110px;
+        right: -200px;
+      } */
+      .hour3{
+        
+        right:-220px;
+      }
+      .hour6{
+        top:210px;
+        right:0px;
+      }
+      .hour12{
+        top:-230px;
+        right:0px;
+      }
+      .hour9{
+        right:220px;
+      }
+      .minute-hand-wrapper{
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        top:-190px;
+        left: -185px;
+        border-radius: 50%;
+      }
+      .minute-hand{
+        position:relative;
+
+      }
+      .minute-hand .hand{
+        width: 4px;
+        height: 190px;
+        background-color: black;
+        position: absolute;
+        left:190px;
+      }
+      .minute-hand .arrow{
+        font-size: 40px;
+        font-weight: bold;
+        color: black;
+        transform: rotate(270deg);
+        position: absolute;
+        top: -16px;
+        left:180px;
+      }
+      .hour-hand-wrapper{
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        top:-190px;
+        left: -185px;
+        border-radius: 50%;
+      }
+      .hour-hand{
+        position:relative;
+
+      }
+      .hour-hand .hand{
+        width: 4px;
+        height: 100px;
+        background-color: black;
+        position: absolute;
+        left:190px;
+      }
+      .hour-hand .arrow{
+        font-size: 40px;
+        font-weight: bold;
+        color: black;
+        transform: rotate(270deg);
+        position: absolute;
+        top: 50px;
+        left:180px;
+      }
+    </style>
+</head>
+<body>
+     <div class="clock">
+        <div class="point">
+            <!-- <div class=" hour hour1">1</div>
+            <div class=" hour hour2">2</div> -->
+            <div class=" hour hour3">3</div>
+            <!-- <div class=" hour hour4">4</div>
+            <div class=" hour hour5">5</div> -->
+            <div class=" hour hour6">6</div>
+            <!-- <div class=" hour hour7">7</div>
+            <div class=" hour hour8">8</div> -->
+            <div class=" hour hour9">9</div>
+            <!-- <div class=" hour hour10">10</div>
+            <div class=" hour hour11">11</div> -->
+            <div class=" hour hour12">12</div>
+            <div class="minute-hand-wrapper">
+              <div class="minute-hand">
+                <div class="hand"></div>
+                <div class="arrow">></div>
+              </div>
+            </div>
+            <div class="hour-hand-wrapper">
+              <div class="hour-hand">
+                <div class="hand"></div>
+                <div class="arrow">></div>
+              </div>
+            </div>
+            <div class="second-hand-wrapper">
+              <div class="second-hand">
+                <div class="hand"></div>
+                <div class="arrow">></div>
+              </div>
+            </div>
+        </div>
+     </div>
+     <script>
+      const hourHand = document.querySelector('.hour');
+const minuteHand = document.querySelector('.minute');
+const secondHand = document.querySelector('.second');
+
+function setClock() {
+  const date = new Date();
+  const seconds = date.getSeconds();
+  const minutes = date.getMinutes();
+  const hours = date.getHours();
+
+  const secondDegrees = (seconds / 60) * 360;
+  const minuteDegrees = (minutes / 60) * 360 + (seconds / 60) * 6;
+  const hourDegrees = (hours / 12) * 360 + (minutes / 60) * 30;
+
+  secondHand.style.transform = `rotate(${secondDegrees}deg)`;
+  minuteHand.style.transform = `rotate(${minuteDegrees}deg)`;
+  hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+}
+
+setInterval(setClock, 1000);
+
+     </script>
+</body>
+</html>

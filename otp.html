@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>otp verification</title>
+    <style>
+        body{
+            min-height: 100vh;
+            display: flex;
+            background-color: rgb(163, 163, 241);
+            align-items: center;
+            justify-content: center ;
+            
+        }
+        h4{
+            font-size: 20px;
+            margin-left: 20px;
+        }
+        .container{
+            background-color: whitesmoke;
+            border-radius: 30PX;
+            padding: 50px;
+        }
+        form input{
+            height: 45px;
+            width: 45px;
+            margin-left: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 20px;
+        }
+        .inputfield input::-webkit-inner-spin-button,
+        .inputfield input ::-webkit-outer-spin-button{
+            display:none
+        }
+        button{
+            margin-top: 20px;
+            margin-left: 40px;
+            height: 25px;
+            width: 200px;
+            background-color: rgb(113, 113, 234);
+            border: 0;
+            font-size: 16px;
+            border-radius: 10px;
+            color: white;
+        }
+        button:hover{
+            height: 40px;
+            font-size: 30px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h4>Enter OTP :</h4>
+        <form action="">
+            <div class="inputfield">
+            <input type="number">
+            <input type="number" disabled>
+            <input type="number" disabled>
+            <input type="number" disabled>
+            </div>
+            <button>submit</button>
+        </form>
+    </div>
+    <script>
+       const inputs= document.querySelectorAll("input");
+       button= document.querySelector ("button");
+
+       inputs.forEach((input,index1)=> {
+        input.addEventListener("keyup",(e)=>{
+            const currentInput=input,
+            nextInput=input.nextElementSibling,
+            prevInput=input.previousElementSibling;
+            if(currentInput.value.length >1){
+                currentInput.value = "";
+                return;
+            }
+            if(nextInput && nextInput.hasAttribute("disabled") && currentInput.value !== "")
+            {
+                nextInput.removeAttribute("disabled");
+                nextInput.focus();
+            }
+            if(e.key === "Backspace"){
+                inputs.forEach((input,index2)=>{
+                    if(index1 <= index2 && prevInput){
+                        input.setAttribute("disabled",true);
+                        currentInput.value = "";
+                        prevInput.focus();
+                    }
+                });
+            }
+           
+        });
+       }
+       );
+       window.addEventListener("load",()=> inputs[0].focus());
+    </script>
+</body>
+</html>
