@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>download</title>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <style>
+        body{
+            background-color: rgb(137, 137, 237);
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+        button{
+          height: 30px;
+          width: 150px;
+          font-size: 17px;
+          border:0;
+          border-radius: 5px;
+
+        }
+        button:hover{
+            cursor: pointer;
+            background-color: rgb(140, 140, 178);
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">Download <ion-icon name="download-outline"></ion-icon></button>
+    <script>
+      function downloadFile(fileName, content) {
+  const link = document.createElement('a');
+  link.href = window.URL.createObjectURL(new Blob([content]));
+  link.setAttribute('download', fileName);
+  link.style.display = 'none';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+// Example usage
+const button = document.getElementById('btn');
+button.addEventListener('click', () => {
+  const fileContent = "This is the content to be downloaded.";
+  downloadFile("my_file.txt", fileContent);
+});
+
+
+    </script>
+</body>
+</html>
